@@ -1,0 +1,75 @@
+.container {
+  max-width: 1440px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+.card {
+  width: 90%;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  background: var(--Light_Grayish_Cya);
+  position: relative;
+  
+  flex-wrap: wrap;
+}
+.text {
+  margin-left: 20px;
+}
+.top-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.top-text p {
+  margin-right: 10px;
+  font-size: 12px;
+}
+.main-name {
+  color: var(--Desaturated_Dark_Cyan);
+}
+.new {
+  background: var(--Desaturated_Dark_Cyan);
+  color: var(--Light_Grayish_Cyan);
+  border-radius: 30px;
+  padding: 5px;
+}
+.featured {
+  background: var(--Very_Dark_Grayish_Cyan--);
+  color: var(--Light_Grayish_Cyan);
+  border-radius: 30px;
+  padding: 5px;
+}
+.middle-text {
+  margin-top: 5px;
+}
+.bottom-text {
+  margin-top: 5px;
+  color: var(--Very_Dark_Grayish_Cyan--);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.dot {
+  width: 3px;
+  height: 3px;
+  background: grey;
+  margin: 0 10px;
+  border-radius: 50%;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  right: 0;
+}
+.stack p {
+  color: var(--Desaturated_Dark_Cyan);
+  background: var(--Light_Grayish_Cyan);
+  margin-right: 10px;
+  padding: 5px;
+  font-weight: 600;
+}

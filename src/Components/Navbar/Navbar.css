@@ -1,0 +1,6 @@
+.navbar {
+  width: 100%;
+  height: 100px;
+  background: var(--Desaturated_Dark_Cyan);
+  margin-bottom: 40px;
+}
