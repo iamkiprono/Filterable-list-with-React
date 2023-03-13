@@ -4,11 +4,18 @@ import data from "../../data";
 import "../Homepage/Homepage.css";
 
 const Homepage = () => {
+  const [filterLanguage, setFilterLanguage] = useState('')
+  const [tool, setTool] = useState('')
   return (
     <div>
       <div className="container">
+        <div className="filter">
+        <p>{filterLanguage}</p>
+        <p>{tool}</p>
+        </div>
         {data.map((company) => {
           return (
+            
             <div className="card">
               <div className="logo">
                 <img src={company.logo} alt="" />
@@ -44,10 +51,14 @@ const Homepage = () => {
                 <p>{company.role}</p>
                 <p>{company.level}</p>
                 {company.tools.map((tool) => {
-                  return <p>{tool}</p>;
+                  return <p onClick={() => {
+                    setTool(tool)
+                  }}>{tool}</p>;
                 })}
                 {company.languages.map((language) => {
-                  return <p>{language}</p>;
+                  return <p onClick={() => {
+                    setFilterLanguage(language)
+                  }}>{language}</p>;
                 })}
               </div>
             </div>
