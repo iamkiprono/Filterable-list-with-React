@@ -17,77 +17,79 @@ const Homepage = () => {
           >
             {filterLanguage}
           </p>
-          <p onClick={() => {
-            setTool("")
-          }}>{tool}</p>
+          <p>{tool}</p>
         </div>
-        {
-          data
-            .filter((toolie) => {
-              return tool === "" ? data : toolie.tools.includes(tool);
-            })
-            .map((company) => {
-              return (
-                <div className="card">
-                  <div className="logo">
-                    <img src={company.logo} alt="" />
+        {data.filter((language) => {
+            return filterLanguage !== ""
+              ? language.languages.includes(filterLanguage)
+
+              : data.filter((toolie) => {
+                return tool !== "" 
+                ? toolie.tools.includes(tool) : data
+              });
+          })
+          .map((company) => {
+            return (
+              <div className="card">
+                <div className="logo">
+                  <img src={company.logo} alt="" />
+                </div>
+                <div className="text">
+                  <div className="top-text">
+                    <p className="main-name">{company.company}</p>
+                    <p className={company.new ? "new" : ""}>
+                      {company.new ? "NEW!" : ""}
+                    </p>
+                    <p className={company.featured ? "featured" : ""}>
+                      {company.featured ? "FEATURED" : ""}
+                    </p>
                   </div>
-                  <div className="text">
-                    <div className="top-text">
-                      <p className="main-name">{company.company}</p>
-                      <p className={company.new ? "new" : ""}>
-                        {company.new ? "NEW!" : ""}
-                      </p>
-                      <p className={company.featured ? "featured" : ""}>
-                        {company.featured ? "FEATURED" : ""}
-                      </p>
-                    </div>
-                    <div className="middle-text">
-                      <h2>{company.position}</h2>
-                    </div>
-                    <div className="bottom-text">
-                      <div className="time-stamps">
-                        <p>{company.postedAt}</p>
-                      </div>
-                      <div className="dot"></div>
-                      <div className="length">
-                        <p>{company.contract}</p>
-                      </div>
-                      <div className="dot"></div>
-                      <div className="region">
-                        <p>{company.location}</p>
-                      </div>
-                    </div>
+                  <div className="middle-text">
+                    <h2>{company.position}</h2>
                   </div>
-                  <div className="stack">
-                    <p>{company.role}</p>
-                    <p>{company.level}</p>
-                    {company.tools.map((tool) => {
-                      return (
-                        <p
-                          onClick={() => {
-                            setTool(tool);
-                          }}
-                        >
-                          {tool}
-                        </p>
-                      );
-                    })}
-                    {company.languages.map((language) => {
-                      return (
-                        <p
-                          onClick={() => {
-                            setFilterLanguage(language);
-                          }}
-                        >
-                          {language}
-                        </p>
-                      );
-                    })}
+                  <div className="bottom-text">
+                    <div className="time-stamps">
+                      <p>{company.postedAt}</p>
+                    </div>
+                    <div className="dot"></div>
+                    <div className="length">
+                      <p>{company.contract}</p>
+                    </div>
+                    <div className="dot"></div>
+                    <div className="region">
+                      <p>{company.location}</p>
+                    </div>
                   </div>
                 </div>
-              );
-            })}
+                <div className="stack">
+                  <p>{company.role}</p>
+                  <p>{company.level}</p>
+                  {company.tools.map((tool) => {
+                    return (
+                      <p
+                        onClick={() => {
+                          setTool(tool);
+                        }}
+                      >
+                        {tool}
+                      </p>
+                    );
+                  })}
+                  {company.languages.map((language) => {
+                    return (
+                      <p
+                        onClick={() => {
+                          setFilterLanguage(language);
+                        }}
+                      >
+                        {language}
+                      </p>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
         {/* <div className="card">
           <div className="logo">
             <img src={photosnap} alt="" />
